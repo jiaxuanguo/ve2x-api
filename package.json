@@ -1,6 +1,6 @@
 {
   "name": "@jxguo/v2ex-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "v2ex public api, both v1 and v2",
   "keywords": [
     "v2ex"
@@ -17,7 +17,8 @@
     "url": "https://github.com/jiaxuanguo/v2ex-api.git"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "yarn build"
   },
   "devDependencies": {
     "typescript": "^4.5.2"
