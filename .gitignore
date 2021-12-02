@@ -1,0 +1,6 @@
+.idea
+*.imi
+dist
+
+# Project exclude paths
+/node_modules/

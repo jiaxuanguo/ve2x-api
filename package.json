@@ -1,0 +1,22 @@
+{
+  "name": "@jxguo/ve2x-api",
+  "version": "0.0.1",
+  "description": "v2ex public api, both v1 and v2",
+  "keywords": ["v2ex"],
+  "homepage": "https://github.com/jiaxuanguo/v2ex-api",
+  "author": "jxguo",
+  "license": "MIT",
+  "files": ["dist"],
+  "main": "dist/index.js",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/jiaxuanguo/v2ex-api.git"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  },
+  "types": "dist/index.d.ts"
+}
