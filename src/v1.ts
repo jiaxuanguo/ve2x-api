@@ -1,4 +1,4 @@
-import { Member, PrivateClient, SiteInfo, SiteNode, SiteStats, Topic } from './types'
+import { Member, PrivateClient, SiteInfo, SiteNode, SiteStats, Topic, Reply } from './types'
 
 export async function getSiteInfo(this: PrivateClient) {
   const res = await this._client.get<SiteInfo>('/site/info.json')
@@ -61,6 +61,6 @@ export async function getMember(this: PrivateClient, username: string) {
 }
 
 export async function getReplies(this: PrivateClient, topic_id: number, page: number, page_size: number = 10) {
-  const res = await this._client.get<Member>('/replies/show.json', { params: { topic_id, page, page_size } })
+  const res = await this._client.get<Reply[]>('/replies/show.json', { params: { topic_id, page, page_size } })
   return res.data
 }
