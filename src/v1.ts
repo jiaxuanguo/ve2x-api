@@ -60,7 +60,7 @@ export async function getMember(this: PrivateClient, username: string) {
   return res.data
 }
 
-export async function getReplies(this: PrivateClient, topic_id: number, page: number = 1, page_size: number = 10) {
+export async function getReplies(this: PrivateClient, topic_id: number, page: number, page_size: number = 10) {
   const res = await this._client.get<Member>('/replies/show.json', { params: { topic_id, page, page_size } })
   return res.data
 }
