@@ -6,6 +6,7 @@ import * as v2 from './v2'
 function createV2exApiClient (options?: Options) {
   const axios = createAxiosInstance(options)
   return {
+    _token: options?.token,
     _client: axios,
     ...v1,
     ...v2

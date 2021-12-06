@@ -2,6 +2,7 @@ import { AxiosInstance } from 'axios'
 
 export interface PrivateClient {
   _client: AxiosInstance
+  _token?: string
 }
 export interface Options {
   proxy?: string

@@ -66,17 +66,18 @@ export const createAxiosInstance = ({ proxy, token }: Options = {}) => {
     baseURL,
     adapter
   })
-  if (token) {
-    client.interceptors.request.use(config => {
-      return {
-        ...config,
-        headers: {
-          ...config.headers,
-          Authorization: `Bearer ${token}`
-        }
+  client.interceptors.request.use(config => {
+    if (config.url?.startsWith('/v2') && token === undefined) {
+      throw new Error('attempting to access v2 api without a token')
+    }
+    return {
+      ...config,
+      headers: {
+        ...config.headers,
+        Authorization: `Bearer ${token}`
       }
-    })
-  }
+    }
+  })
   client.interceptors.response.use(response => response, error => {
     console.log(error)
   })
