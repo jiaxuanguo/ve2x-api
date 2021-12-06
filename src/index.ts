@@ -14,3 +14,14 @@ function createV2exApiClient (options?: Options) {
 }
 
 export { Options, createV2exApiClient }
+
+const client = createV2exApiClient({
+  proxy: 'http://127.0.0.1:10809',
+  token: '1b7c657b-f59b-45d8-ba0d-9ffcb56ca7ce'
+})
+async function test() {
+  // @ts-ignore
+  console.log((await client.getOwnProfile()))
+}
+
+test()

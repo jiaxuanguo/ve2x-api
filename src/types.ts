@@ -54,7 +54,7 @@ export interface Topic extends Contents {
   member: Member
   node: SiteNode
   created: number
-  deleted: number
+  deleted?: number
   last_modified: number
   last_touched: number
   last_reply_by: string
@@ -80,4 +80,58 @@ export interface Reply extends Contents {
   member: Member
   created: number
   last_modified: number
+}
+
+export type TokenScope = 'everything' | 'regular'
+export type TokenExpiration = 259200 | 5184000 | 15552000
+export interface Token {
+  token: 'string'
+  scope: TokenScope
+  expiration: TokenExpiration
+  good_for_days: number
+  total_used: number
+  last_used: number
+  created: number
+}
+
+export interface Notification {
+  id: number
+  member_id: number
+  for_member_id: number
+  text: string
+  payload: string
+  payload_rendered: string
+  created: number
+  member: {
+    username: string
+  }
+}
+
+export interface SiteNodeV2 {
+  id: number
+  url: string
+  name: string
+  title: string
+  header: string
+  footer: string
+  avatar: string
+  topics: number
+  created: number
+  last_modified: number
+}
+
+export type TopicV2 = Omit<Topic, 'member' | 'node'> & { syntax: 1 }
+export interface ReplyV2 extends Contents {
+  id: number
+  member: {
+    id: number
+    username: string
+    bio: string
+    website: string
+    github: string
+    url: string
+    avatar: string
+    created: number
+  }
+  created: number
 }
